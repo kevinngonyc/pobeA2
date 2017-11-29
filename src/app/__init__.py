@@ -16,6 +16,8 @@ db = SQLAlchemy(app)
 # from app.blue import blue as blue
 # app.register_blueprint(blue)
 
+import routes
+
 # Default functionality of rendering index.html
 def render_page():
   return render_template('index.html')

@@ -74,6 +74,10 @@ class test(unittest.TestCase):
     self.app_context.push()
 
   def tearDown(self):
+    db.session.execute('DELETE FROM tagelements;')
+    self.commit()
+    db.session.execute('DELETE FROM tags;')
+    self.commit()
     db.session.execute('DELETE FROM elements;')
     self.commit()
     db.session.execute('DELETE FROM boards;')
@@ -241,6 +245,34 @@ class test(unittest.TestCase):
     assert(result['data']['boards'][0]['todo_count'] == 0)
     assert(result['data']['boards'][0]['inprogress_count'] == 3)
     assert(result['data']['boards'][0]['done_count'] == 1)
+
+  def test_tag(self):
+    input_data = dict(title='My Awesome Board')
+    result_id = json.loads(self.post(input_data, 'boards').data)['data']['board']['id']
+    input_data1 = dict(
+      board_id=result_id,
+      description='A Todo Task, I should get this done!',
+      category='inprogress')
+    element_id = json.loads(self.post(input_data1, 'board_elements').data)['data']['board_element']['id']
+
+    input_data5 = dict(name="Rocky")
+    print(json.loads(self.post(input_data5, 'tags').data))
+
+    #result = json.loads(self.app.get('/kanban/tags').data)
+    input_data6 = dict(tag_id=1, board_element_id=element_id)
+
+    self.post(input_data6,'tags/add')
+    # self.app.get('/kanban/tags')
+
+
+    result = json.loads(self.app.get('/kanban/boards/%s' % result_id).data)
+
+    # print json.loads(
+    #   self.app.delete(
+    #   '/kanban/board_elements?%s' % self.input_dict_to_args(input_data),
+    #   follow_redirects=False).data)
+    print(result)
+    assert(result['success'])
 
 if __name__ == '__main__':
   unittest.main()
