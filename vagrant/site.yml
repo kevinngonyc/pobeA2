@@ -51,7 +51,11 @@
         dest: '{{ repository_path }}'
       when: cloned.stat.exists == false
     - name: Install pip requirements
+<<<<<<< HEAD
       command: pip install -r {{ repository_path }}/requirements.txt
+=======
+      command: pip install -r {{ repository_path }}/src/requirements.txt
+>>>>>>> parent of cb5749b... removed vagrant
     - name: Copy Upstart configuration
       template: src=upstart.conf.j2 dest=/etc/init/upstart.conf
     - name: Create a new database with name {{ DB_NAME }}

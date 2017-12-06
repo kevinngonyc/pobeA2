@@ -8,8 +8,11 @@ colorama==0.3.7
 cryptography==2.0.3
 docutils==0.14
 enum34==1.1.6
+<<<<<<< HEAD
 Flask==0.12.1
 Flask-SQLAlchemy==2.2
+=======
+>>>>>>> parent of cb5749b... removed vagrant
 futures==3.1.1
 idna==2.6
 ipaddress==1.0.18
