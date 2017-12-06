@@ -1,0 +1,2 @@
+[webservers]
+18.217.69.24 ansible_ssh_user=ubuntu
