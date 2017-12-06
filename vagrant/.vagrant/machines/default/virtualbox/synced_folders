@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/kevinngo/Documents/appDevBackend/pobeA2/vagrant","disabled":false,"__vagrantfile":true}}}
-=======
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/kevinngo/Documents/appDevBackend/A2/vagrant","disabled":false,"__vagrantfile":true}}}
->>>>>>> parent of cb5749b... removed vagrant

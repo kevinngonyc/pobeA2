@@ -1,6 +1,0 @@
-[webservers]
-<<<<<<< HEAD
-18.217.69.24 ansible_ssh_user=ubuntu
-=======
-34.213.3.109 ansible_ssh_user=ubuntu
->>>>>>> parent of cb5749b... removed vagrant
